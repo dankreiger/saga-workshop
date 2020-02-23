@@ -31,4 +31,4 @@ goal: remove `fetchDog` action from `src/state/dog/actions.js` and keep only the
 ### Exercise 4 - make counter increment on every for fetchDogRequest
 
 1. spec
-2. ....
+2. TODO: add more
