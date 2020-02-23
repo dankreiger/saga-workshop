@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <style>
+    body {
+      background-color: #fafafa;
+
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      user-select: none;
+    }
+
+    nav {
+      padding: 0 10px;
+    }
+
+    .collection-item>div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="#" class="breadcrumb">Home</a>
+      </div>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <ul class="collection with-header" style="width: 100%;">
+      <li class="collection-header">
+        <h2>Exercises</h2>
+      </li>
+      <li class="collection-item">
+        <div>
+          <div>
+            <h5>1. vanilla redux</h5>
+            <p>purpose: understanding <code>dispatch</code></p>
+          </div>
+          <a href="./ex1/index.html" class="secondary-content"><i class="material-icons">send</i></a>
+        </div>
+      </li>
+      <li class="collection-item">
+        <div>
+          <div>
+            <h5>2. asynchronous redux middleware</h5>
+            <p>purpose: understanding middleware and how it helps us use asynchronous js in redux</p>
+          </div>
+          <a href="./ex2/index.html" class="secondary-content"><i class="material-icons">send</i></a>
+        </div>
+      </li>
+
+      <li class="collection-item">
+        <div>
+          <div>
+            <h5>3. generator functions</h5>
+            <p>purpose: understanding how es6 generator functions work</p>
+          </div>
+          <a href="./ex3/index.html" class="secondary-content"><i class="material-icons">send</i></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
