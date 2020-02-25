@@ -4,9 +4,9 @@ export const AppWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
-  grid-template-areas: 
-    "image button"
-    "counter counter";
+  grid-template-areas:
+    'image button'
+    'counter counter';
 `;
 
 export const AppImgWrapper = styled.div`
@@ -52,10 +52,8 @@ export const AppButton = styled.button`
   }
 `;
 
-
 export const AppCounter = styled.div`
   font-size: 2em;
   grid-area: counter;
   justify-self: center;
-
-`
+`;

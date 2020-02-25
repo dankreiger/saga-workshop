@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+      .flex-on-the-haters {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="col s12">
+          <a href="/" class="breadcrumb">Home</a>
+          <a href="#!" class="breadcrumb"
+            >ex4 - coroutines for async generators</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="wrapper flex-on-the-haters" style="padding: 20px;">
+      <p>
+        look inside <code>src/ex4/coroutine.js</code> to see how the generator
+        function is being stepped through
+      </p>
+      <button
+        class="waves-effect waves-light btn"
+        style="font-size: 20px;"
+        id="facepalm"
+      >
+        Einstein quote
+      </button>
+
+      <div id="app"></div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -11,19 +11,18 @@ function App() {
   const counter = useSelector(({ counter }) => counter);
 
   const handleFetchDog = useCallback(() => {
-    dispatch(fetchDogRequest())
-  }, [dispatch])
+    dispatch(fetchDogRequest());
+  }, [dispatch]);
   return (
     <AppWrapper>
       <AppImgWrapper>
         <img src={image} alt="dog" />
-
       </AppImgWrapper>
-      <AppButton onClick={handleFetchDog}>{loading ? <LoadingSpinner /> : 'fetch'}</AppButton>
+      <AppButton onClick={handleFetchDog}>
+        {loading ? <LoadingSpinner /> : 'fetch'}
+      </AppButton>
 
-      <AppCounter>
-        {counter}
-      </AppCounter>
+      <AppCounter>{counter}</AppCounter>
     </AppWrapper>
   );
 }

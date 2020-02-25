@@ -1,7 +1,7 @@
-import { CounterActionTypes as AT } from "./constants";
+import { CounterActionTypes as AT } from './constants';
 
 export const counter = (state = 0, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case AT.INCREMENT:
       return state + 1;
     case AT.DECREMENT:
@@ -9,4 +9,4 @@ export const counter = (state = 0, action) => {
     default:
       return state;
   }
-}
+};

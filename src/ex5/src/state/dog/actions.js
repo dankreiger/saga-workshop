@@ -1,4 +1,3 @@
-
 import { DogActionTypes as AT } from './constants';
 
 export const fetchDogRequest = () => ({
@@ -15,7 +14,6 @@ export const fetchDogFailure = payload => ({
   payload
 });
 
-
 export const fetchDog = () => dispatch => {
   dispatch(fetchDogRequest());
 
@@ -23,4 +21,4 @@ export const fetchDog = () => dispatch => {
     .then(res => res.json())
     .then(json => dispatch(fetchDogSuccess(json.message)))
     .catch(err => dispatch(fetchDogFailure(err)));
-}
+};
