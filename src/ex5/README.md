@@ -28,8 +28,8 @@ goal: remove `fetchDog` action from `src/state/dog/actions.js` and keep only the
 3. remove `fetchDog` thunk action from `src/state/dog/actions.js`
 4. click the button and watch the puppies fly in
 
-### Exercise 4 - make counter increment on every for fetchDogRequest
+### Bonus:
 
-### Exercise 5 - create screensaver when user is idle for more than 1 minute
+### Bonus 1 - make counter increment on every for fetchDogRequest
 
-### Exercise 6 - make an api saga that delays the loading state by 200ms so a loading spinner doesn't flash if the response comes back quickly. Additionally, make the saga cancel in flight ajax requests if another request is made that triggers the same saga
+### Bonus 2 - make an api saga that delays the loading state by 200ms so a loading spinner doesn't flash if the response comes back quickly. Additionally, make the saga cancel in flight ajax requests if another request is made that triggers the same saga
