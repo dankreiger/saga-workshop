@@ -12,7 +12,7 @@ import { ActionTypes as AT, numberOfPups } from './constants';
 
 const url = `https://dog.ceo/api/breed/hound/images/random/${numberOfPups}`;
 
-function* apiCall() {
+export function* apiCall() {
   try {
     const promise = yield fetch(url);
     const { message } = yield promise.json();
@@ -22,7 +22,7 @@ function* apiCall() {
   }
 }
 
-function* initiateScreensaver() {
+export function* initiateScreensaver() {
   const noErrors = yield select(({ screenSaver }) => !screenSaver.error);
   try {
     while (noErrors) {
