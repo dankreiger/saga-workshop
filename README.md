@@ -14,8 +14,8 @@ For ex5 please do the following:
 ```sh
 $ cd src/ex5
 $ nvm use
-$ yarn
-$ yarn start
+$ yarn # install dependencies
+$ yarn start # start server
 $ yarn test # to run specs
 ```
 
@@ -24,7 +24,7 @@ For ex6 please do the following:
 ```sh
 $ cd src/ex6
 $ nvm use
-$ yarn
-$ yarn start
+$ yarn  # install dependencies
+$ yarn start # start server
 $ yarn test # to run specs
 ```
