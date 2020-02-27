@@ -33,7 +33,6 @@
     "sort-package-json": "^1.40.0"
   },
   "dependencies": {
-    "artyom.js": "^1.0.6",
-    "node-fetch": "^2.6.0"
+    "artyom.js": "^1.0.6"
   }
 }

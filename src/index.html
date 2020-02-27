@@ -15,7 +15,6 @@
   <style>
     body {
       background-color: #fafafa;
-
     }
 
     .wrapper {
@@ -25,18 +24,33 @@
       justify-content: center;
     }
 
+    .another-dog {
+      width: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
     button {
       user-select: none;
     }
 
     nav {
-      padding: 0 10px;
+      padding: 0px 20px;
     }
 
     .collection-item>div {
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .collection-item a {
+      color: rgba(0, 0, 0, 0.87);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   </style>
 </head>
@@ -55,45 +69,91 @@
         <h2>Exercises</h2>
       </li>
       <li class="collection-item">
-        <div>
+        <a href="./ex1/index.html">
           <div>
             <h5>1. vanilla redux</h5>
             <p>purpose: understanding <code>dispatch</code></p>
           </div>
-          <a href="./ex1/index.html" class="secondary-content"><i class="material-icons">send</i></a>
-        </div>
+          <div class="secondary-content">
+            <i class="material-icons">send</i>
+          </div>
+        </a>
       </li>
       <li class="collection-item">
-        <div>
+        <a href="./ex2/index.html">
           <div>
             <h5>2. asynchronous redux middleware</h5>
-            <p>purpose: understanding middleware and how it helps us use asynchronous js in redux</p>
+            <p>
+              purpose: understanding middleware and how it helps us use
+              asynchronous js in redux
+            </p>
           </div>
-          <a href="./ex2/index.html" class="secondary-content"><i class="material-icons">send</i></a>
-        </div>
+          <div href="./ex2/index.html" class="secondary-content">
+            <i class="material-icons">send</i>
+          </div>
+        </a>
       </li>
-
       <li class="collection-item">
-        <div>
+        <a href="./ex3/index.html">
           <div>
             <h5>3. generator functions</h5>
             <p>purpose: understanding how es6 generator functions work</p>
           </div>
-          <a href="./ex3/index.html" class="secondary-content"><i class="material-icons">send</i></a>
-        </div>
+          <div class="secondary-content">
+            <i class="material-icons">send</i>
+          </div>
+        </a>
       </li>
       <li class="collection-item">
-        <div>
+        <a href="./ex4/index.html">
           <div>
             <h5>4. coroutines for async generators</h5>
-            <p>purpose: understanding how libraries like redux saga invoke generator functions</p>
+            <p>
+              purpose: understanding how libraries like redux saga invoke
+              generator functions
+            </p>
           </div>
-          <a href="./ex4/index.html" class="secondary-content"><i class="material-icons">send</i></a>
-        </div>
+          <div class="secondary-content">
+            <i class="material-icons">send</i>
+          </div>
+        </a>
+      </li>
+      <li class="collection-item">
+        <a href="https://github.com/dankreiger/saga-workshop/tree/master/src/ex5" target="_blank">
+          <div class="another-dog">
+            <div>
+              <h5>5. redux saga setup + watchers/workers</h5>
+              <div>
+                <p>purposes: </p>
+                <p>1. understanding how to add redux saga to a redux project</p>
+                <p>2. understanding how to watch for redux dispatched actions in order to call workers </p>
+                <p>3. understanding how to unit test generator functions</p>
+
+              </div>
+            </div>
+
+            <div class="secondary-content">
+              <i class="material-icons">send</i>
+            </div>
+        </a>
+      </li>
+      <li class="collection-item">
+        <a href="https://github.com/dankreiger/saga-workshop/tree/master/src/ex6#non-blocking-saga-exercise-fork"
+          target="_blank">
+          <div>
+            <h5>6. non-blocking forked saga exercise</h5>
+            <p>
+              purpose: understanding how sagas can be used to stargt cancellable
+              background tasks
+            </p>
+          </div>
+          <div class="secondary-content">
+            <i class="material-icons">send</i>
+          </div>
+        </a>
       </li>
     </ul>
   </div>
-
 </body>
 
 </html>

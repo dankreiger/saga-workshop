@@ -14,16 +14,18 @@ const url = `https://dog.ceo/api/breed/hound/images/random/${numberOfPups}`;
 
 export function* apiCall() {
   try {
+    const promise = yield fetch(url);
+    const { message } = yield promise.json();
+    return message;
   } catch (error) {
+    yield put({ type: AT.PUPPY_FELL_DOWN, payload: error }); // will throw error boundary
   }
 }
 
 export function* initiateScreensaver() {
   const noErrors = yield select(({ screenSaver }) => !screenSaver.error);
   try {
-    while (noErrors) {
-
-    }
+    while (noErrors) {}
   } finally {
     if (yield cancelled()) {
     }
@@ -31,6 +33,5 @@ export function* initiateScreensaver() {
 }
 
 export function* watchScreensaverActive() {
-  while (yield take(AT.START_SCREEN_SAVER)) {
-  }
+  while (yield take(AT.START_SCREEN_SAVER)) {}
 }

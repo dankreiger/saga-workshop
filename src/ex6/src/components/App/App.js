@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import IdleTimer from 'react-idle-timer';
 import Dogs from '../Dogs/Dogs';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import { ActionTypes as AT } from '../../redux/screensaver/constants';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -11,11 +12,11 @@ export default function App() {
   );
 
   const onActive = useCallback(() => {
-    dispatch({ type: 'STOP_SCREEN_SAVER' });
+    dispatch({ type: AT.STOP_SCREEN_SAVER });
   }, [dispatch]);
 
   const onIdle = useCallback(() => {
-    dispatch({ type: 'START_SCREEN_SAVER' });
+    dispatch({ type: AT.START_SCREEN_SAVER });
   }, [dispatch]);
   return (
     <ErrorBoundary>

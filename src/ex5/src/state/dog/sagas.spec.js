@@ -20,7 +20,9 @@ describe('all dog sagas', () => {
       gen = watchFetchDogRequest();
     });
 
-    it('watches for the latest action of type "FETCH_DOG_REQUEST"', () => {});
+    it('watches for the latest action of type "FETCH_DOG_REQUEST"', () => {
+      // hint: you should use takeLatest from redux saga - first argument is the action type, and the second argument is the saga to be invoked
+    });
   });
 
   describe('fetchDogRequestAsync', () => {
