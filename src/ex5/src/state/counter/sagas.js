@@ -1,5 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 
-export function* counterAsync() {}
+export function* incrementCounter() {}
 
-export function* counterSaga() {}
+export function* watchFetchDogSuccess() {}
+
+export function* counterSagas() {}

@@ -33,6 +33,8 @@ describe('all dog sagas', () => {
 
     it('calls the dog api, receives a successful response, and then dispatches fetchDogSuccess', () => {});
 
-    it('calls the dog api, receives an error response, and then dispatches fetchDogFailure', () => {});
+    it('calls the dog api, receives an error response, and then dispatches fetchDogFailure', () => {
+      // hint - instead of gen.next(), you can use gen.throw()
+    });
   });
 });

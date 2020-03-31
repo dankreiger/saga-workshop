@@ -1,6 +1,6 @@
-## Non-blocking saga exercise (fork)
+## Redux saga for accessibility and cacheing
 
-### Getting started
+### Getting started (same as ex5)
 
 ```sh
 $ nvm install 12.16.1 # if you don't have it already
@@ -10,37 +10,15 @@ $ yarn start # starts server
 $ yarn test # runs tests
 ```
 
-After 3 seconds of idle user time, the app will dispatch a 'START_SCREEN_SAVER' action.
+- This app has some issues that we can eliminate gracefully with sagas
 
-The goal is to:
+GOALS:
 
-- start a `watchScreensaverActive` saga from the `rootSaga` that listens for this 'START_SCREEN_SAVER' action
+1. only make an api call if the image is not in the store already
+2. throttle to 3g, and make sure we abort any unnecessary api calls
 
----
+### Exercise 1 - enhance the saga so we select cached data from the store if it exists
 
-The `watchScreensaverActive` watcher saga should:
+### Exercise 2 - throttle down to 3g speed and implement the AbortController api so unnecessary inflight requests are cancelled
 
-- fork an `initiateScreensaver` saga and then wait for the 'STOP_SCREEN_SAVER' action (this will be dispatched when the user moves the mouse)
-- after we take the stop action, we cancel the forked task
-
----
-
-The `initiateScreensaver` saga should:
-
-- call a small `apiCall` saga to get pictures of dogs (code for `apiSaga` is included)
-- once it receives the result, it should dispatch a 'SHOW_PUPPIES' action with a payload containing the result:
-  - hint: `yield put({ type: 'SHOW_PUPPIES', payload: result });`
-- delay for a bit so people can enjoy the images
-- dispatch an action to hide the puppies
-- delay again for a bit
-
-This saga should repeat itself until it has been cancelled. Note that cancelling a saga wrapped in a try block will cause it to jump into a finally block.
-For an example of this, visit: https://redux-saga.js.org/docs/advanced/TaskCancellation.html
-
-In the finally block, we should dispatch an action to hide the puppies in the screensaver.
-
-1. complete spec in `redux/root.sagas.spec.js`
-2. complete saga in `redux/root.sagas.js` to make spec pass
-
-3. complete spec in `redux/screensaver/sagas.spec.js`
-4. complete saga in `redux/screensaver/sagas.js` to make specs pass
+- Bonus: try to delay the loading spinner

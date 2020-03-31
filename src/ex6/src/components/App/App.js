@@ -1,36 +1,59 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  AppWrapper,
+  AppLoadingWrapper,
+  AppImgWrapper,
+  AppButton,
+  AppCounter,
+  AppButtonWrapper
+} from './App.styles';
 import { useDispatch, useSelector } from 'react-redux';
-import IdleTimer from 'react-idle-timer';
-import Dogs from '../Dogs/Dogs';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-import { ActionTypes as AT } from '../../redux/screensaver/constants';
+import { fetchDogRequest } from 'state/dog/actions';
+import { LoadingSpinner } from 'components/LoadingSpinner/LoadingSpinner';
 
-export default function App() {
+function App() {
   const dispatch = useDispatch();
-  const screenSaverActive = useSelector(
-    ({ screenSaver }) => screenSaver.active
+  const [breeds, setBreeds] = useState([]);
+  const currentImage = useSelector(({ dog }) => dog.currentImage);
+  const currentBreed = useSelector(({ dog }) => dog.currentBreed);
+  const loading = useSelector(({ dog }) => dog.loading);
+
+  useEffect(() => {
+    fetch('https://dog.ceo/api/breeds/list/all')
+      .then(res => res.json())
+      .then(json => setBreeds(Object.keys(json.message)));
+  }, []);
+
+  const handleFetchDog = useCallback(
+    e => {
+      dispatch(fetchDogRequest(e.target.name));
+    },
+    [dispatch]
   );
-
-  const onActive = useCallback(() => {
-    dispatch({ type: AT.STOP_SCREEN_SAVER });
-  }, [dispatch]);
-
-  const onIdle = useCallback(() => {
-    dispatch({ type: AT.START_SCREEN_SAVER });
-  }, [dispatch]);
   return (
-    <ErrorBoundary>
-      <IdleTimer
-        element={document}
-        onActive={onActive}
-        onIdle={onIdle}
-        debounce={250}
-        timeout={3000}
-      />
-      <div className={`App ${screenSaverActive && 'screenSaver'}`}>
-        <h1 className={screenSaverActive ? 'hidden' : ''}>I am an app</h1>
-        {screenSaverActive && <Dogs />}
-      </div>
-    </ErrorBoundary>
+    <AppWrapper>
+      {loading && (
+        <AppLoadingWrapper>
+          <LoadingSpinner />
+        </AppLoadingWrapper>
+      )}
+      <AppImgWrapper>
+        {currentImage && <img src={currentImage} alt="dog" />}
+      </AppImgWrapper>
+      <AppButtonWrapper>
+        {breeds.map(b => (
+          <AppButton
+            currentBreed={currentBreed}
+            breed={b}
+            name={b}
+            onClick={handleFetchDog}
+            key={b}
+          >
+            {b}
+          </AppButton>
+        ))}
+      </AppButtonWrapper>
+    </AppWrapper>
   );
 }
+export default App;

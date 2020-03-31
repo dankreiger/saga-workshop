@@ -1,4 +1,5 @@
 import { DogActionTypes as AT } from './constants';
+import { increment } from 'state/counter/actions';
 
 export const fetchDogRequest = () => ({
   type: AT.FETCH_DOG_REQUEST
@@ -19,6 +20,9 @@ export const fetchDog = () => dispatch => {
 
   return fetch('https://dog.ceo/api/breeds/image/random')
     .then(res => res.json())
-    .then(json => dispatch(fetchDogSuccess(json.message)))
+    .then(json => {
+      dispatch(fetchDogSuccess(json.message));
+      dispatch(increment());
+    })
     .catch(err => dispatch(fetchDogFailure(err)));
 };
