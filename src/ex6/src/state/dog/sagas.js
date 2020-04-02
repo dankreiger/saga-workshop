@@ -8,14 +8,16 @@ import { api } from './utils';
  */
 export function* fetchDogRequestAsync({ currentBreed }) {
   // hint - to access cached data in redux, use `select` from redux saga to get state from the store
-
+  // const cachedImage = yield select(({ dog }) => dog[currentBreed]);
+  const cachedImage = yield select(({ dog }) => dog[currentBreed]);
   // if cache found...
-
+  if (cachedImage) {
+    yield put(fetchDogSuccess({ currentBreed, currentImage: cachedImage }));
+    return;
+  }
   // else make new request
   try {
-    const abortController = new AbortController();
-    const options = { signal: abortController.signal };
-    const res = yield call(api, currentBreed, options);
+    const res = yield call(api, currentBreed);
 
     yield put(fetchDogSuccess({ currentBreed, currentImage: res.message }));
   } catch (error) {

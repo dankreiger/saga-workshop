@@ -18,6 +18,10 @@ describe('rootSaga', () => {
   it('calls the watchRequest and watchAnotherRequest saga watchers in parallel', () => {
     // hint: to call sagas in parallel, you need to do something like this:
     // yield all([call(watcherSaga1), call(watcherSaga2)]);
+    expect(gen.next().value).toEqual(
+      all([call(watchRequest), call(watchAnotherRequest)])
+    );
+    expect(gen.next().done).toBe(true);
   });
 });
 
@@ -28,7 +32,10 @@ describe('watchRequest', () => {
     gen = watchRequest();
   });
 
-  it('watches for the latest action of type "REQUEST". When this action is dispatched, it calls handleRequestAsync worker', () => {});
+  it('watches for the latest action of type "REQUEST". When this action is dispatched, it calls handleRequestAsync worker', () => {
+    expect(gen.next().value).toEqual(takeLatest('REQUEST', handleRequestAsync));
+    expect(gen.next().done).toBe(true);
+  });
 });
 
 describe('watchAnotherRequest', () => {

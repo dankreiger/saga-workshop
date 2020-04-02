@@ -24,7 +24,9 @@ export function* handleRequestAsync() {}
  */
 export function* watchAnotherRequest() {}
 
-export function* watchRequest() {}
+export function* watchRequest() {
+  yield takeLatest('REQUEST', handleRequestAsync);
+}
 
 /**
  * @title root

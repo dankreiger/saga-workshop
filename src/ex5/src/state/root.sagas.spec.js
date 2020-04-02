@@ -9,8 +9,9 @@ describe('rootSaga', () => {
     gen = rootSaga();
   });
 
-  it('calls the dogSaga and the counter saga in parallel', () => {
+  it('calls the dogSaga', () => {
     // hint: to call sagas in parallel, you need to do something like this:
+    expect(gen.next().value).toEqual(call(dogSaga));
     // yield all([call(saga1), call(saga2)]);
   });
 });

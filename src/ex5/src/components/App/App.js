@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { AppWrapper, AppImgWrapper, AppButton, AppCounter } from './App.styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDog } from 'state/dog/actions';
+import { fetchDogRequest } from 'state/dog/actions';
 import { LoadingSpinner } from 'components/LoadingSpinner/LoadingSpinner';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   const counter = useSelector(({ counter }) => counter);
 
   const handleFetchDog = useCallback(() => {
-    dispatch(fetchDog());
+    dispatch(fetchDogRequest());
   }, [dispatch]);
   return (
     <AppWrapper>
