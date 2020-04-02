@@ -1,3 +1,6 @@
 import { call } from 'redux-saga/effects';
+import { watchScreensaverActive } from './screensaver/sagas';
 
-export function* rootSaga() {}
+export function* rootSaga() {
+  yield call(watchScreensaverActive);
+}
