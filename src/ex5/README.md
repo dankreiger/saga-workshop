@@ -1,4 +1,4 @@
-## Redux saga setup + watchers/workers
+## Redux saga setup + watchers/workers + moving from thunks to sagas
 
 ### Getting started
 
